@@ -9,7 +9,9 @@
                     @if($divisions != '')
                         @if ($season->show === 1)
                             @foreach($divisions as $div) {{-- Division --}}
+                                @if($div->division_name != NULL)
                                 <h3>{{ $div->division_name }} Division</h3>
+                                @endif
                                 @for($i = 1; $i <= $div->rounds; $i++) {{-- Round --}}
                                     @php
                                     $byeArray = [];

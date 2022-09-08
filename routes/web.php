@@ -19,6 +19,7 @@ Route::get('/pilots', 'App\Http\Controllers\HomeController@pilots');
 Route::get('/schedule', 'App\Http\Controllers\HomeController@schedule');
 Route::get('/rules', 'App\Http\Controllers\HomeController@rules');
 Route::get('/seasons', 'App\Http\Controllers\HomeController@seasons');
+Route::get('/archive/{id}', 'App\Http\Controllers\HomeController@archive');
 
 Auth::routes();
 

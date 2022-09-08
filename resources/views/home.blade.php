@@ -55,7 +55,7 @@
                                                 <tbody>
                                                 @foreach($standings1 as $team)
                                                     @php
-                                                    $total_points = 0;
+                                                    $total_points = 0 - $team->penalty;
 													if ($team->score_one != NULL) {
 														$total_points += $team->score_one;
 													}
@@ -85,7 +85,7 @@
 
                                                     @endphp
                                                     <tr class="tr-stand-sort" data-id="{{ $team->id }}" id="{{ $team->team_name }}">
-                                                        <td class="data-team" data-id="{{ $team->id }}" data-value="{{ $team->team_name }}">{{ $team->team_name }} <img src="images/teams/{{ $team->logo }}" alt="{{ $team->team_name }} logo"></td>
+                                                        <td class="data-team" data-id="{{ $team->id }}" data-value="{{ $team->team_name }}">{{ $team->team_name }} {!! $team->penalty == 0 ? '' : '<span>(Penalty: '.$team->penalty.')</span>' !!}<img src="/images/teams/{{ $team->logo }}" alt="{{ $team->team_name }} logo"></td>
                                                         <td class="data-score" data-id="{{ $team->id }}" data-value="{{ $added_score }}">
                                                                 {{ number_format($added_score) }}
                                                         </td>
@@ -160,7 +160,7 @@
                                                         <div class="team-sides-wrapper">
                                                             <div class="team_one_side">
                                                                 <div class="scoreboard-wrapper">
-                                                                    <h5><img src="images/'.$faction1.'-logo.png" alt="'.$faction1.' logo" /> '.$team_one->team_name.' <span class="'.$win_state1.'">'.$scoreboard_two.'</span></h5>
+                                                                    <h5><img src="/images/'.$faction1.'-logo.png" alt="'.$faction1.' logo" /> '.$team_one->team_name.' <span class="'.$win_state1.'">'.$scoreboard_two.'</span></h5>
                                                                 </div>
                                                         ';
 														echo '
@@ -199,7 +199,7 @@
                                                             <div class="team_two_side">
 
                                                                 <div class="scoreboard-wrapper">
-                                                                    <h5><img src="images/'.$faction2.'-logo.png" alt="'.$faction2.' logo" /> '.$team_two->team_name.' <span class="'.$win_state2.'">'.$scoreboard_one.'</span></h5>
+                                                                    <h5><img src="/images/'.$faction2.'-logo.png" alt="'.$faction2.' logo" /> '.$team_two->team_name.' <span class="'.$win_state2.'">'.$scoreboard_one.'</span></h5>
                                                                 </div>
                                                                 <div class="single-match-wrapper">
                                                                     <table class="single-match-stats">

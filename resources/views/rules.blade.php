@@ -77,7 +77,7 @@
                             </li>
                             <li>Once a match proceeds to the hangar/ready room the teams are locked for that match.
                             </li>
-                            <li>Only in-game players are allowed in team voice channels for the duration of the game, staff members may enter to carry out match duty as required.
+                            <li>Only in-game players are allowed in team voice channels unmuted for the duration of the game. Non-participating team members may remain but muted, in stand-by. Staff members may enter to carry out match duty as required.
                             </li>
                             <li>In the event of an incidental disconnect or control failure during a game, the captain of the team can  instruct their team to exit the game on one occasion to allow a reset of the game only within the first three minutes of the game. If the first three minutes of the game have elapsed or the captain has used their one restart option, the game shall continue.
                             </li>

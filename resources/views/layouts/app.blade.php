@@ -10,8 +10,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="js/jquery-3.1.1.min.js" defer></script>
-    <script src="js/main.js" defer></script>
+    <script src="/js/jquery-3.1.1.min.js" defer></script>
+    <script src="/js/main.js" defer></script>
 
 
     <!-- Favicon -->
@@ -24,10 +24,10 @@
     <meta name="theme-color" content="#0f2a7c">
 
     <!-- Styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/font-awesome.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/font-awesome.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,12 +42,12 @@
             <div class="col">
                 <nav>
                     <ul>
-                        <li><a href="/"><img src="images/logo.png" alt="SCFL logo"></a></li>
-                        <li><a href="schedule">Schedule</a></li>
-                        <li><a href="teams">Teams</a></li>
-                        <li><a href="pilots">Pilots</a></li>
-                        <li><a href="rules">Rules</a></li>
-                        <li><a href="seasons">Seasons</a></li>
+                        <li><a href="/"><img src="/images/logo.png" alt="SCFL logo"></a></li>
+                        <li><a href="/schedule">Schedule</a></li>
+                        <li><a href="/teams">Teams</a></li>
+                        <li><a href="/pilots">Pilots</a></li>
+                        <li><a href="/rules">Rules</a></li>
+                        <li><a href="/seasons">Seasons</a></li>
                     </ul>
                 </nav>
 
@@ -60,16 +60,16 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <img src="images/logo-footer.png" alt="SCFL logo">
+                <img src="/images/logo-footer.png" alt="SCFL logo">
             </div>
             <div class="col-md-6">
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="schedule">Schedule</a></li>
-                    <li><a href="teams">Teams</a></li>
-                    <li><a href="pilots">Pilots</a></li>
-                    <li><a href="rules">Rules</a></li>
-                    <li><a href="seasons">Seasons</a></li>
+                    <li><a href="/schedule">Schedule</a></li>
+                    <li><a href="/teams">Teams</a></li>
+                    <li><a href="/pilots">Pilots</a></li>
+                    <li><a href="/rules">Rules</a></li>
+                    <li><a href="/seasons">Seasons</a></li>
                     <li><a href="https://discord.com/invite/BgYknw7bUu" target="_blank">SCFL Discord Server</a></li>
                 </ul>
 

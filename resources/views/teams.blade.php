@@ -18,7 +18,7 @@
                                             @php
                                                 $pilots = App\Models\pilot::where('team_id', $item->id)->get();
                                             @endphp
-                                            <li><img src="images/teams/{{ $item->logo != "" ? $item->logo : 'default.png' }}" alt="{{ $item->team_name }} logo"><h3>{{ $item->team_name }}
+                                            <li><img src="/images/teams/{{ $item->logo != "" ? $item->logo : 'default.png' }}" alt="{{ $item->team_name }} logo"><h3>{{ $item->team_name }}
                                                     <span class="club">{{ $item->club }}</span>
                                                     @if($div->division_name != NULL)
                                                     <span class="sub-info">{{ $div->division_name }} Division</span>

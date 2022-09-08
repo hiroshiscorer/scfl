@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\archive;
 use App\Models\division;
 use App\Models\season;
 use App\Models\team;
@@ -31,7 +32,7 @@ class HomeController extends Controller
         $division = $season != '' ? division::where('season_id', $season->id)->get() : '';
 
         $standings1 = DB::table('teams')
-            ->select(DB::raw('teams.id, team_name, SUM(team1_score) score_one, logo'))
+            ->select(DB::raw('teams.id, team_name, SUM(team1_score) score_one, logo, penalty'))
             ->leftJoin('matchups', 'teams.id', '=', 'matchups.team1_id')
             ->groupBy('id')
             ->orderBy('id')
@@ -90,7 +91,13 @@ class HomeController extends Controller
     }
     public function seasons()
     {
-        return view('seasons');
+        $archives = archive::all();
+        return view('seasons', compact('archives'));
+    }
+    public function archive($id )
+    {
+        $archive = archive::where('id', $id)->first();
+        return view('archive', compact('archive'));
     }
 }
 
