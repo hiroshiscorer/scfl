@@ -246,8 +246,18 @@ body > footer ul li {
 footer p.dev-by {
     display: flex;
     align-items: flex-end;
-    height: 100%;
     font-size: 0.8em;
+}
+
+footer .footer-last {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+#pay-pal > * {
+    display: block;
 }
 
 /* =========================== COMMON  =========================== */
@@ -257,6 +267,7 @@ body > main {
     color: #fff;
     box-shadow: 0 0 10px #000;
     padding-bottom: 60px;
+    min-height: calc(100vh - 392px);
 }
 
 h1 > span, h2 > span, h3 > span, h4 > span, h5 > span, h6 > span {

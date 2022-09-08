@@ -30,7 +30,7 @@
                                     <p>Type: Elimination</p>
                                     @break
                                 @endswitch
-                                @if (count($division) > 0)
+                                @if (count($division) > 0 && $season->type == "league")
                                     <h3>Standings:</h3>
                                     <div class="row">
                                     @foreach($division as $div)
@@ -116,14 +116,12 @@
                                         </div>
                                    @endforeach
                                     </div>
-
-
                                 @endif
                                     <br>
                                         @php
                                             $icounter = isset($_GET['full']) ? 100000 : 10;
                                             $recent_games = Illuminate\Support\Facades\DB::table('matches')->orderByDesc('id')->get();
-											if ($recent_games != NULL) {
+											if (count($recent_games) != 0) {
 												echo '
                                             <h3>Recent Games</h3>
                                                 <ul class="recent-games">

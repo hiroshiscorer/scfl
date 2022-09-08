@@ -21,13 +21,22 @@
         flex-direction: column;
         font-size: 0.8em;
     }
+    body > main {
+        min-height: initial;
+    }
     body > footer {
         text-align: center;
     }
     footer p.dev-by {
         align-items: center;
         justify-content: center;
-        padding-top: 15px;
+    }
+    footer .footer-last {
+        padding-top: 30px;
+    }
+    #pay-pal > * {
+        margin-left: auto;
+        margin-right: auto;
     }
     #main_stats th, #main_stats td {
         font-size: 0.7rem;

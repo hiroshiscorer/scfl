@@ -74,7 +74,13 @@
                 </ul>
 
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 footer-last">
+                <form id="pay-pal" action="https://www.paypal.com/donate" method="post" target="_top">
+                    <input type="hidden" name="hosted_button_id" value="B478WUQXZZWV8" />
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" title="Only if you think the work I put in this website is worth it" alt="Donate with PayPal button" />
+                    <img alt="" border="0" src="https://www.paypal.com/en_MX/i/scr/pixel.gif" width="1" height="1" />
+                </form>
+
                 <p class="dev-by">Developed by Zynetik Producciones</p>
             </div>
         </div>
