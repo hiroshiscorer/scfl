@@ -57,6 +57,9 @@
     #rules table th, #rules table td {
         font-size: 0.6rem;
     }
+    table.season-one {
+        font-size: 0.7em;
+    }
 
 }
 
