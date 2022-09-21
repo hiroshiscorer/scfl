@@ -23,11 +23,15 @@
                                     <ul>
                                         <li>Type: League</li>
                                         <li>Divisions: {{ count($division) }}</li>
-                                        <li>{{ $season->misc }}</li>
+                                        <li>{!! $season->misc !!}</li>
                                     </ul>
                                     @break
                                     @case('tourney')
-                                    <p>Type: Elimination</p>
+                                    <ul>
+                                        <li>Type: Elimination</li>
+                                        <li>{!! $season->misc !!}</li>
+                                    </ul>
+
                                     @break
                                 @endswitch
                                 @if (count($division) > 0 && $season->type == "league")

@@ -538,6 +538,14 @@ p.no-season a:hover {
     min-width: 1.35em;
 }
 
+strong.champ {
+    font-size: 3em;
+    text-align: center;
+    display: block;
+    border-bottom: 1px solid #fff;
+    text-shadow: 0 0 5px #fff, 3px 3px 0 #000;
+}
+
 /* =========================== TEAMS  =========================== */
 
 #teams .sub-info {
