@@ -483,7 +483,7 @@ p.no-season a:hover {
 .recent-games h5 {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     font-size: 0.9rem;
     font-weight: bold;
 }
@@ -539,11 +539,24 @@ p.no-season a:hover {
 }
 
 strong.champ {
+    animation: champy 5s infinite ease-in-out;
     font-size: 3em;
     text-align: center;
     display: block;
     border-bottom: 1px solid #fff;
     text-shadow: 0 0 5px #fff, 3px 3px 0 #000;
+}
+
+@keyframes champy {
+    0% {
+        transform: skew(0deg, 1deg);
+    }
+    50% {
+        transform: skew(0deg, -1deg);
+    }
+    100% {
+        transform: skew(0deg, 1deg);
+    }
 }
 
 /* =========================== TEAMS  =========================== */
@@ -808,6 +821,7 @@ strong.champ {
 
 .matchup-item p span:first-child {
     margin-right: auto;
+    flex-basis: 65%;
 }
 
 .matchup-item p span:last-child {
