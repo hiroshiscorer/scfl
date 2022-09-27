@@ -49,13 +49,13 @@ $(document).ready(function(){
 
     if ($('.standings-table').length) {
         $('.standings-click').on('click', function(){
-            $('.standings-click i').removeClass('active');
+            $(this).siblings().find('i').removeClass('active');
             $(this).find('i').addClass('active');
             let type = '.data-'+$(this).attr('data-class');
             let scflArray = [];
             switch ($(this).attr('data-class')) {
                 case 'team':
-                    $('.tr-stand-sort').css('order', 0);
+                    $(this).parents('table').find('.tr-stand-sort').css('order', 0);
                     break;
                 case 'score':
                 case 'kills':
@@ -94,7 +94,7 @@ $(document).ready(function(){
 
             if (scflArray.length !== 0) {
                 for (let i = 0; i < scflArray.length; i++) {
-                    $('.tr-stand-sort').each(function (){
+                    $(this).parents('table').find('.tr-stand-sort').each(function (){
                         if ($(this).attr('data-id') == scflArray[i][0]) $(this).css('order',i);
                     });
                 }
@@ -114,7 +114,7 @@ $(document).ready(function(){
         scflArrayStart.sort(compareSecondColumnD2);
         if (scflArrayStart.length !== 0) {
             for (let i = 0; i < scflArrayStart.length; i++) {
-                $('.tr-stand-sort').each(function (){
+                $(this).parents('table').find('.tr-stand-sort').each(function (){
                     if ($(this).attr('data-id') == scflArrayStart[i][0]) $(this).css('order',i);
                 });
             }

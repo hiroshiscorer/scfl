@@ -38,8 +38,8 @@
                                     <h3>Standings:</h3>
                                     <div class="row">
                                     @foreach($division as $div)
-                                        <div class="col">
-                                            <h4>{{ $div->division_name }} </h4>
+                                        <div class="col-12">
+                                            <h4 class="mtop60">{{ $div->division_name != '' ? $div->division_name.' Division' : ''}} </h4>
                                             @php
                                                 $teams = App\Models\team::where('division_id', $div->id)->get();
                                             @endphp
@@ -58,6 +58,7 @@
                                                 </thead>
                                                 <tbody>
                                                 @foreach($standings1 as $team)
+                                                    @if($team->division_id == $div->id)
                                                     @php
                                                     $total_points = 0 - $team->penalty;
 													if ($team->score_one != NULL) {
@@ -89,7 +90,7 @@
 
                                                     @endphp
                                                     <tr class="tr-stand-sort" data-id="{{ $team->id }}" id="{{ $team->team_name }}">
-                                                        <td class="data-team" data-id="{{ $team->id }}" data-value="{{ $team->team_name }}">{{ $team->team_name }} {!! $team->penalty == 0 ? '' : '<span>(Penalty: '.$team->penalty.')</span>' !!}<img src="/images/teams/{{ $team->logo }}" alt="{{ $team->team_name }} logo"></td>
+                                                        <td class="data-team" data-id="{{ $team->id }}" data-value="{{ $team->team_name }}">{{ $team->team_name }} {!! $team->penalty == 0 ? '' : '<span>(Penalty: '.$team->penalty.')</span>' !!}<img src="/images/teams/{{ $team->logo != '' ? $team->logo : 'default.png' }}" alt="{{ $team->team_name }} logo"></td>
                                                         <td class="data-score" data-id="{{ $team->id }}" data-value="{{ $added_score }}">
                                                                 {{ number_format($added_score) }}
                                                         </td>
@@ -112,6 +113,7 @@
                                                             {{ $total_points }}
                                                         </td>
                                                     </tr>
+                                                    @endif
                                                 @endforeach
                                                 </tbody>
                                             </table>

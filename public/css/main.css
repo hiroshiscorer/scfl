@@ -809,6 +809,7 @@ strong.champ {
 
 .matchup-item p.calendar {
     font-size: 0.75em;
+    flex-direction: column;
     margin: 5px 0 0;
     font-weight: 400;
 }

@@ -117,7 +117,7 @@
                                             <span class="{{ $result_class_2 }}">{{ $scoreboard2 }}</span>
                                         </p>
                                         @if($match->calendar != '')
-                                            <p class="calendar">Current scheduled time: {{ $match->calendar }}</p>
+                                                <p class="calendar"><strong>Current scheduled time:</strong> {!! $match->calendar !!}</p>
                                         @else
                                             <p class="calendar">No scheduled time yet.</p>
                                         @endif

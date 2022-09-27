@@ -32,7 +32,7 @@ class HomeController extends Controller
         $division = $season != '' ? division::where('season_id', $season->id)->get() : '';
 
         $standings1 = DB::table('teams')
-            ->select(DB::raw('teams.id, team_name, SUM(team1_score) score_one, logo, penalty'))
+            ->select(DB::raw('teams.id, team_name, SUM(team1_score) score_one, logo, teams.division_id, penalty'))
             ->leftJoin('matchups', 'teams.id', '=', 'matchups.team1_id')
             ->groupBy('id')
             ->orderBy('id')
