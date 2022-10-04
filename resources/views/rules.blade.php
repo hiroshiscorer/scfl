@@ -149,6 +149,9 @@
                                     <li>When switching faction, the teams MUST fly the corresponding mirror loadouts. That means, they will fly the loadouts previously played by the opponent.</li>
                                 </ul>
                             </li>
+                            <li>
+                                Winner of the matchup is determined by the result of adding the scoreboard of both games.
+                            </li>
                             <li>If there is a tie (Both in-game scoreboard values are even once added), then another pair of games will be played with the map and loadouts randomized again. However, this time the match will last 10 minutes, with a 10 kill cap. (Instead of 15 minutes and 20 kills). If the tie persists, repeat the process for another pair of games, randomizing again, but from now on, halving all ship hull and shield modifiers (0.5 for first 2 games, then 0.2, then 0.1).
                             </li>
                         </ul>
@@ -204,7 +207,7 @@
                     </li>
                     <li><h3>APPENDIX A - DIVISION PERFORMANCE TABLE</h3>
                         In order to draft teams up or down the division ladder, the following criteria will be used and applied to past season standings before the next one starts. This procedure will be used starting on Season 5:<br>
-                        <table>
+                        <table class="mtop30">
                             <tr>
                                 <th>Amount of teams in division</th>
                                 <th>Amount Promoted</th>
@@ -316,6 +319,10 @@
                         <td>Major overhaul of sections to include the reformed LEAGUE and SHIELD system, removing CLASSIC and OPEN divisions.<br>
                         Added clarity by changing and repurposing terms such as tournament, event, league, playoff, round-robin, etc.<br>
                         </td>
+                    </tr>
+                    <tr>
+                        <td>27th Sep 2022</td>
+                        <td><b>Section 8d</b> - Added clarity on how the winner of a SHIELD matchup is determined.</td>
                     </tr>
                 </table>
             </div>

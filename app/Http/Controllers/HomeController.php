@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\archive;
 use App\Models\division;
+use App\Models\match;
+use App\Models\matchup;
+use App\Models\pilot;
+use App\Models\pilotStat;
 use App\Models\season;
 use App\Models\team;
 use Illuminate\Http\Request;
@@ -98,6 +102,53 @@ class HomeController extends Controller
     {
         $archive = archive::where('id', $id)->first();
         return view('archive', compact('archive'));
+    }
+    public function pilotcard($pilotname )
+    {
+        $pilot = pilot::where('pilot_name', $pilotname)->first();
+        $team = team::where('id', $pilot->team_id)->first();
+        $stats = pilotStat::where('pilot_id', $pilot->id)->get();
+        $nrStat = ['kills' => 0, 'deaths' => 0, 'assists' => 0, 'wins' => 0];
+        $eStat = ['kills' => 0, 'deaths' => 0, 'assists' => 0, 'wins' => 0];
+
+        for ($i = 0; $i < count($stats); $i++) {
+            $match = match::where('id', $stats[$i]->match_id)->first();
+
+            $matchup = matchup::where('id', $match->matchup_id)->first();
+            if ($pilot->team_id == $matchup->team1_id) {
+                if ($match->faction == 0) {
+                    //add to NR stats
+                    $nrStat["kills"]+=$stats[$i]->kills;
+                    $nrStat["deaths"]+=$stats[$i]->deaths;
+                    $nrStat["assists"]+=$stats[$i]->assists;
+                    $nrStat["wins"]+=$stats[$i]->match_won;
+                } else {
+                    //add to emp stats
+                    $eStat["kills"]+=$stats[$i]->kills;
+                    $eStat["deaths"]+=$stats[$i]->deaths;
+                    $eStat["assists"]+=$stats[$i]->assists;
+                    $eStat["wins"]+=$stats[$i]->match_won;
+                }
+            }
+            if ($pilot->team_id == $matchup->team2_id) {
+                if ($match->faction == 1) {
+                    //add to NR stats
+                    $nrStat["kills"]+=$stats[$i]->kills;
+                    $nrStat["deaths"]+=$stats[$i]->deaths;
+                    $nrStat["assists"]+=$stats[$i]->assists;
+                    $nrStat["wins"]+=$stats[$i]->match_won;
+                } else {
+                    //add to emp stats
+                    $eStat["kills"]+=$stats[$i]->kills;
+                    $eStat["deaths"]+=$stats[$i]->deaths;
+                    $eStat["assists"]+=$stats[$i]->assists;
+                    $eStat["wins"]+=$stats[$i]->match_won;
+                }
+            }
+
+        }
+
+        return view('pilotcard', compact('pilot', 'team', 'stats', 'nrStat', 'eStat'));
     }
 }
 

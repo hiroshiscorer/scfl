@@ -102,23 +102,26 @@ $(document).ready(function(){
 
         });
 
-        let scflArrayStart = [];
-        let typeStart = '.data-points';
-        $(typeStart).each(function (){
-            let name = $(this).attr('data-id');
-            let value = parseInt($(this).attr('data-value'));
-            let secondValue = parseFloat($(this).attr('data-value-two'));
-            if (value == null) value = 0;
-            scflArrayStart.push([name, value, secondValue]);
-        });
-        scflArrayStart.sort(compareSecondColumnD2);
-        if (scflArrayStart.length !== 0) {
-            for (let i = 0; i < scflArrayStart.length; i++) {
-                $(this).parents('table').find('.tr-stand-sort').each(function (){
-                    if ($(this).attr('data-id') == scflArrayStart[i][0]) $(this).css('order',i);
-                });
+        $('.standings-table').each(function(){
+            let scflArrayStart = [];
+            let typeStart = '.data-points';
+            $(this).find(typeStart).each(function (){
+                let name = $(this).attr('data-id');
+                let value = parseInt($(this).attr('data-value'));
+                let secondValue = parseFloat($(this).attr('data-value-two'));
+                if (value == null) value = 0;
+                scflArrayStart.push([name, value, secondValue]);
+            });
+            scflArrayStart.sort(compareSecondColumnD2);
+            if (scflArrayStart.length !== 0) {
+                for (let i = 0; i < scflArrayStart.length; i++) {
+                    $(this).find('.tr-stand-sort').each(function (){
+                        if ($(this).attr('data-id') == scflArrayStart[i][0]) $(this).css('order',i);
+                    });
+                }
             }
-        }
+
+        });
     }
 
     if ($('#pilots').length) {

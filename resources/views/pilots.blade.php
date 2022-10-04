@@ -41,7 +41,7 @@
                             @endphp
 
 
-                                <td class="data-pilot" data-id="{{ $i }}" data-value="{{ $pilots[$i]->pilot_name }}">[{{ $pilots[$i]->initials }}] <strong>{{ $pilots[$i]->pilot_name }}</strong>
+                                <td class="data-pilot" data-id="{{ $i }}" data-value="{{ $pilots[$i]->pilot_name }}">[{{ $pilots[$i]->initials }}] <strong><a href="/pilot/{{ $pilots[$i]->pilot_name }}" target="_blank">{{ $pilots[$i]->pilot_name }}</a></strong>
                                     <span>{{ $pilots[$i]->team_name }}</span>
                                     <span>Games played: {{ $games_total[0]->games_total }}</span>
                                 </td>

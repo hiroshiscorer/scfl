@@ -730,6 +730,15 @@ strong.champ {
     animation-timing-function: ease-in-out;
 }
 
+#main_stats strong a {
+    color: #fff;
+    transition: 250ms ease;
+}
+
+#main_stats strong a:hover {
+    color: var(--scfl-grey);
+}
+
 @keyframes scfl-blink {
     0% {
         box-shadow: 0 0 5px transparent inset;
