@@ -112,7 +112,7 @@ class HomeController extends Controller
         $eStat = ['kills' => 0, 'deaths' => 0, 'assists' => 0, 'wins' => 0];
 
         for ($i = 0; $i < count($stats); $i++) {
-            $match = match::where('id', $stats[$i]->match_id)->first();
+            $match = \App\Models\match::where('id', $stats[$i]->match_id)->first();
 
             $matchup = matchup::where('id', $match->matchup_id)->first();
             if ($pilot->team_id == $matchup->team1_id) {
