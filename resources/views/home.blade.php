@@ -47,6 +47,7 @@
                                                 <thead>
                                                 <tr>
                                                     <th class="standings-click" data-class="team">Team <i class="fa fa-sort-desc"></i></th>
+                                                    <th class="standings-click" data-class="games"><i class="fa fa-sort-desc"></i> Games Played</th>
                                                     <th class="standings-click" data-class="score"><i class="fa fa-sort-desc"></i> Score</th>
                                                     <th class="standings-click" data-class="kills"><i class="fa fa-sort-desc"></i> K</th>
                                                     <th class="standings-click" data-class="deaths"><i class="fa fa-sort-desc"></i> D</th>
@@ -60,37 +61,56 @@
                                                 @foreach($standings1 as $team)
                                                     @if($team->division_id == $div->id)
                                                     @php
-                                                    $total_points = 0 - $team->penalty;
-													if ($team->score_one != NULL) {
-														$total_points += $team->score_one;
-													}
-                                                    foreach ($standings2 as $teamTwo) {
-														if ($team->id == $teamTwo->id) {
-															$total_points += $teamTwo->score_two;
+                                                        $games_played = 0;
+                                                        $total_points = 0 - $team->penalty;
+                                                        if ($team->score_one != NULL) {
+                                                            $total_points += $team->score_one;
+                                                        }
+                                                        foreach ($standings2 as $teamTwo) {
+                                                            if ($team->id == $teamTwo->id) {
+                                                                $total_points += $teamTwo->score_two;
+                                                            }
+                                                        }
+                                                        $pilots = Illuminate\Support\Facades\DB::table('pilots')->where('team_id', $team->id)->get();
+                                                        $added_score = 0;
+                                                        $added_kills = 0;
+                                                        $added_deaths = 0;
+                                                        $added_assists = 0;
+
+                                                        foreach ($pilots as $pilot) {
+                                                            // SELECT SUM(score) as puntos FROM pilot_stats WHERE pilot_id = 7
+                                                            $tempScore = Illuminate\Support\Facades\DB::table('pilot_stats')->selectRaw('SUM(score) as puntos')->where('pilot_id', $pilot->id)->get();
+                                                            $tempKills = Illuminate\Support\Facades\DB::table('pilot_stats')->selectRaw('SUM(kills) as qills')->where('pilot_id', $pilot->id)->get();
+                                                            $tempDeaths = Illuminate\Support\Facades\DB::table('pilot_stats')->selectRaw('SUM(deaths) as muertes')->where('pilot_id', $pilot->id)->get();
+                                                            $tempAssists = Illuminate\Support\Facades\DB::table('pilot_stats')->selectRaw('SUM(assists) as asistencias')->where('pilot_id', $pilot->id)->get();
+                                                            $added_score += $tempScore[0]->puntos;
+                                                            $added_kills += $tempKills[0]->qills;
+                                                            $added_deaths += $tempDeaths[0]->muertes;
+                                                            $added_assists += $tempAssists[0]->asistencias;
+
+                                                        }
+                                                        $temp_games_played_one = Illuminate\Support\Facades\DB::table('matchups')
+                                                            ->where('team1_id', $team->id)
+                                                            ->get();
+                                                        $temp_games_played_two = Illuminate\Support\Facades\DB::table('matchups')
+                                                            ->where('team2_id', $team->id)
+                                                            ->get();
+														foreach ($temp_games_played_one as $row) {
+															if (!$row->team1_score == 0 || !$row->team2_score == 0) {
+																$games_played++;
+															}
 														}
-                                                    }
-                                                    $pilots = Illuminate\Support\Facades\DB::table('pilots')->where('team_id', $team->id)->get();
-													$added_score = 0;
-													$added_kills = 0;
-													$added_deaths = 0;
-													$added_assists = 0;
-
-													foreach ($pilots as $pilot) {
-														// SELECT SUM(score) as puntos FROM pilot_stats WHERE pilot_id = 7
-														$tempScore = Illuminate\Support\Facades\DB::table('pilot_stats')->selectRaw('SUM(score) as puntos')->where('pilot_id', $pilot->id)->get();
-														$tempKills = Illuminate\Support\Facades\DB::table('pilot_stats')->selectRaw('SUM(kills) as qills')->where('pilot_id', $pilot->id)->get();
-														$tempDeaths = Illuminate\Support\Facades\DB::table('pilot_stats')->selectRaw('SUM(deaths) as muertes')->where('pilot_id', $pilot->id)->get();
-														$tempAssists = Illuminate\Support\Facades\DB::table('pilot_stats')->selectRaw('SUM(assists) as asistencias')->where('pilot_id', $pilot->id)->get();
-														$added_score += $tempScore[0]->puntos;
-														$added_kills += $tempKills[0]->qills;
-														$added_deaths += $tempDeaths[0]->muertes;
-														$added_assists += $tempAssists[0]->asistencias;
-
-													}
-
+														foreach ($temp_games_played_two as $row) {
+															if (!$row->team1_score == 0 || !$row->team2_score == 0) {
+																$games_played++;
+															}
+														}
                                                     @endphp
                                                     <tr class="tr-stand-sort" data-id="{{ $team->id }}" id="{{ $team->team_name }}">
                                                         <td class="data-team" data-id="{{ $team->id }}" data-value="{{ $team->team_name }}">{{ $team->team_name }} {!! $team->penalty == 0 ? '' : '<span>(Penalty: '.$team->penalty.')</span>' !!}<img src="/images/teams/{{ $team->logo != '' ? $team->logo : 'default.png' }}" alt="{{ $team->team_name }} logo"></td>
+                                                        <td class="data-games" data-id="{{ $team->id }}" data-value="{{ $games_played }}">
+                                                            {{ $games_played }}
+                                                        </td>
                                                         <td class="data-score" data-id="{{ $team->id }}" data-value="{{ $added_score }}">
                                                                 {{ number_format($added_score) }}
                                                         </td>
