@@ -57,6 +57,7 @@ $(document).ready(function(){
                 case 'team':
                     $(this).parents('table').find('.tr-stand-sort').css('order', 0);
                     break;
+                case 'games':
                 case 'score':
                 case 'kills':
                 case 'deaths':
