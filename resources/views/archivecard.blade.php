@@ -133,19 +133,14 @@
     </style>
 </head>
 <body>
-<script>
-    let query = "INSERT INTO `cards` (`id`,`season`,`pilotname`,`team`,`team_image`,`nr_k`,`nr_d`,`nr_a`,`nr_w`,`nr_kd`,`ge_k`,`ge_d`,`ge_a`,`ge_w`,`ge_kd`,`t_kd`,`created_at`,`updated_at`) VALUES (NULL,'proto-0','{{ $pilot->pilot_name }}','{{ $team->team_name }}','{{ $team->logo != '' ? $team->logo : 'default.png' }}','{{ $nrStat['kills'] }}','{{ $nrStat['deaths'] }}','{{ $nrStat['assists'] }}','{{ $nrStat['wins'] }}','{{ number_format($nrStat['kills'] / ($nrStat['deaths'] != 0 ? $nrStat['deaths'] : 1), 2) }}','{{ $eStat['kills'] }}','{{ $eStat['deaths'] }}','{{ $eStat['assists'] }}','{{ $eStat['wins'] }}','{{ number_format($eStat['kills'] / ($eStat['deaths'] != 0 ? $eStat['deaths'] : 1), 2) }}','{{ number_format(($nrStat['kills'] + $eStat['kills']) / (($nrStat['deaths'] + $eStat['deaths']) != 0 ? ($nrStat['deaths'] + $eStat['deaths']) : 1), 2) }}',NULL,NULL); ";
-
-    console.log(query);
-</script>
 <main>
     <figure>
-        <img src="/images/teams/{{ $team->logo != '' ? $team->logo : 'default.png' }}" alt="{{ $team->team_name }} logo">
+        <img src="/images/teams/{{ $card->team_image }}" alt="{{ $card->team }} logo">
     </figure>
-    <h1>{{ $pilot->pilot_name }}</h1>
-    <h2>{{ $pilot->pilot_name }}</h2>
-    <h3>{{ $team->team_name }}</h3>
-    <h4>{{ $team->team_name }}</h4>
+    <h1>{{ $card->pilotname }}</h1>
+    <h2>{{ $card->pilotname }}</h2>
+    <h3>{{ $card->team }}</h3>
+    <h4>{{ $card->team }}</h4>
     <table>
         <tr>
             <th></th>
@@ -155,33 +150,33 @@
         </tr>
         <tr>
             <td>KILLS</td>
-            <td>{{ $nrStat['kills'] }}</td>
-            <td>{{ $eStat['kills'] }}</td>
-            <td>{{ $eStat['kills'] + $nrStat['kills'] }}</td>
+            <td>{{ $card->nr_k }}</td>
+            <td>{{ $card->ge_k }}</td>
+            <td>{{ $card->nr_k + $card->ge_k }}</td>
         </tr>
         <tr>
             <td>DEATHS</td>
-            <td>{{ $nrStat['deaths'] }}</td>
-            <td>{{ $eStat['deaths'] }}</td>
-            <td>{{ $eStat['deaths'] + $nrStat['deaths'] }}</td>
+            <td>{{ $card->nr_d }}</td>
+            <td>{{ $card->ge_d }}</td>
+            <td>{{ $card->nr_d + $card->ge_d }}</td>
         </tr>
         <tr>
             <td>ASSISTS</td>
-            <td>{{ $nrStat['assists'] }}</td>
-            <td>{{ $eStat['assists'] }}</td>
-            <td>{{ $eStat['assists'] + $nrStat['assists'] }}</td>
+            <td>{{ $card->nr_a }}</td>
+            <td>{{ $card->ge_a }}</td>
+            <td>{{ $card->nr_a + $card->ge_a }}</td>
         </tr>
         <tr>
             <td>WINS</td>
-            <td>{{ $nrStat['wins'] }}</td>
-            <td>{{ $eStat['wins'] }}</td>
-            <td>{{ $eStat['wins'] + $nrStat['wins'] }}</td>
+            <td>{{ $card->nr_w }}</td>
+            <td>{{ $card->ge_w }}</td>
+            <td>{{ $card->nr_w + $card->ge_w }}</td>
         </tr>
         <tr>
             <td>K/D</td>
-            <td>{{ number_format($nrStat['kills'] / ($nrStat['deaths'] != 0 ? $nrStat['deaths'] : 1), 2) }}</td>
-            <td>{{ number_format($eStat['kills'] / ($eStat['deaths'] != 0 ? $eStat['deaths'] : 1), 2) }}</td>
-            <td>{{ number_format(($nrStat['kills'] + $eStat['kills']) / (($nrStat['deaths'] + $eStat['deaths']) != 0 ? ($nrStat['deaths'] + $eStat['deaths']) : 1), 2) }}</td>
+            <td>{{ $card->nr_kd }}</td>
+            <td>{{ $card->ge_kd }}</td>
+            <td>{{ $card->t_kd }}</td>
         </tr>
     </table>
     <figure>

@@ -285,3 +285,5 @@
     </div>
 </main>
 @endsection
+{{-- SELECT count(map) AS times, map FROM matches GROUP BY map --}}
+{{-- --}}

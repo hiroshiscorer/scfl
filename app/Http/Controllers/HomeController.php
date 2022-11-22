@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\archive;
+use App\Models\card;
 use App\Models\division;
 use App\Models\match;
 use App\Models\matchup;
@@ -98,12 +99,12 @@ class HomeController extends Controller
         $archives = archive::all();
         return view('seasons', compact('archives'));
     }
-    public function archive($id )
+    public function archive($id)
     {
         $archive = archive::where('id', $id)->first();
         return view('archive', compact('archive'));
     }
-    public function pilotcard($pilotname )
+    public function pilotcard($pilotname)
     {
         $pilot = pilot::where('pilot_name', $pilotname)->first();
         $team = team::where('id', $pilot->team_id)->first();
@@ -149,6 +150,12 @@ class HomeController extends Controller
         }
 
         return view('pilotcard', compact('pilot', 'team', 'stats', 'nrStat', 'eStat'));
+    }
+
+    public function archivecard($season, $pilotname)
+    {
+        $card = card::where('season', $season)->where('pilotname', $pilotname)->first();
+        return view('archivecard', compact('card'));
     }
 }
 
