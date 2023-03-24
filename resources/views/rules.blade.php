@@ -23,7 +23,7 @@
                                 </ul>
                             </li>
                             <li>Teams will no longer apply for Open or Classic. This will be replaced by a multiple division scheme. The amount of divisions will depend on the amount of registered teams.</li>
-                            <li>Division drafting in season 4 will be made based on historic data from the players in past SCFL events. In following seasons, the teams will be drafted based on the latest season performance.</li>
+                            <li>Division drafting will be made based on the latest season performance.</li>
                             <li>Teams will be verified by SCFL staff. Teams are required to check in with staff on the discord server before the event commences.</li>
                             <li>All participants must have joined the <a href="https://discord.com/invite/BgYknw7bUu" target="_blank">StarCross Fighter League Discord server</a>.</li>
                             <li>Teams must name a team captain or representative that will be the point of contact for that team.</li>
@@ -32,10 +32,8 @@
                     </li>
                     <li><h3>ROSTER ROTATION</h3>
                         <ul>
-                            <li>All rostered players of a team must play a minimum of 2 games (or 1 round) during the season.</li>
-                            <li>A team that fails to field a player without reasonable cause or notice will have 3 <strong>LEAGUE</strong> points subtracted for each player in this situation (e.g. Your team has 5 pilots, but only fielded 3 of them, then 6 points are deducted).
-                            </li>
-                            <li>2a and 2b apply to the <strong>LEAGUE</strong> format only.</li>
+                            <li>All rostered players are encouraged to play, however there is no minimum amount of games required.</li>
+                            <li>Penalty for not playing has been removed. This used to serve a purpose that divisions now fulfill.</li>
                         </ul>
                     </li>
                     <li><h3>STRUCTURE OF SCFL</h3>
@@ -50,7 +48,7 @@
                     <li><h3>DURATION AND PLAYABLE TIME/CONDITIONS OF LEAGUE ROUNDS</h3>
                         <ul>
                             <li>First round start and end dates will be announced every season. Registrations will close 48 hours before commencement.</li>
-                            <li>Rounds will begin on Mondays 12:00pm UTC (7:00am CDT/EST, 8:00am EDT, 5:00am PDT) and will run to Sunday at 11:59am UTC time the following week (each round is 7 days long) until all rounds have been played.
+                            <li>Rounds will begin on Mondays 12:00pm UTC (6:00am CST, 7:00am EST, 4:00am PST) and will run to the same time the following week (each round is 7 days long) until all rounds have been played.
                             </li>
                             <li>Match playing times are flexible arrangements that can be worked out through staff members and team captains, it is the team captains responsibility to arrange and communicate with team and opposing captains then to inform staff when arrangements are made.
                             </li>
@@ -68,11 +66,11 @@
                     </li>
                     <li><h3>MATCH ADMISSION</h3>
                         <ul>
-                            <li>Only participating teams, staff and casters may join the match lobby. The team playing as Galactic Empire will create the lobby and host the match.
+                            <li>Only participating teams, staff and casters may join the custom match lobby. The team playing as Galactic Empire will create the lobby and host the match.
                             </li>
-                            <li>Only 3 team members per team are permitted in the game lobby as players when the match commences.
+                            <li>Only 3 team members per team are permitted in the custom match lobby as players when the match commences.
                             </li>
-                            <li>Remaining team members may join the lobby as spectators.</li>
+                            <li>Remaining team members may join the custom match lobby as spectators.</li>
                             <li>A team may switch out a player between games including at a reset (under conditions of Section 5 g).
                             </li>
                             <li>Once a match proceeds to the hangar/ready room the teams are locked for that match.
@@ -90,7 +88,7 @@
                         <ul>
                             <li>Team captains are in charge of taking screenshots to verify data and match info which will be published into the corresponding discord channel. This will be used for recording results and generating standings and statistics.
                             </li>
-                            <li>Staff will be encouraged to also take screenshots as a backup if possible. The responsibility ultimately lies upon the team captains.</li>
+                            <li>Staff and other players are encouraged to also take screenshots as a backup if possible. The responsibility ultimately lies upon the team captains.</li>
                             <li>The staff will record all results into the system and will confirm it has been processed.
                             </li>
                         </ul>
@@ -99,9 +97,11 @@
                         <ul>
                             <li>MATCH FORMAT <br>
                                 3v3 dogfight games <br>
-                                20 kills game cap <br>
-                                15 minutes per game time limit <br>
-                                2 Games per round
+                                15 kills game cap <br>
+                                10 minutes per game time limit <br>
+                                2 Games per round <br>
+                                Primary weapon modifier 1.3
+
                             </li>
                             <li>HOME / AWAY TEAM DETERMINATION AND RIGHTS
                                 <ul>
@@ -110,6 +110,14 @@
                                     </li>
                                     <li>The Away team will decide in which map to play first.</li>
                                     <li>Home team then chooses the map for the second game.</li>
+                                </ul>
+                            </li>
+                            <li>CRAFT AND LOADOUT
+                                <ul>
+                                    <li>The three ships MUST be different.</li>
+                                    <li>Primary weapon cannot be the same in two ships, except for standard lasers.</li>
+                                    <li>When dying, a player may choose another ship as long as it is different from the ships already flying and the primary weapon does not conflict.</li>
+                                    <li>If a team fails to follow any of the last three rules, the offending team will automatically forfeit the game under conditions of Section 10 a with the game ceasing immediately.</li>
                                 </ul>
                             </li>
                             <li>LEAGUE POINTS SYSTEM <br>
@@ -128,9 +136,10 @@
                         <ul>
                             <li>MATCH FORMAT <br>
                                 3v3 dogfight games <br>
-                                20 kills game cap <br>
-                                15 minutes per game time limit <br>
-                                2 Games per round
+                                15 kills game cap <br>
+                                10 minutes per game time limit <br>
+                                2 Games per round <br>
+                                Primary weapon modifier 1.3
                             </li>
                             <li>HOME / AWAY TEAM DETERMINATION AND RIGHTS
                                 <ul>
@@ -143,7 +152,7 @@
                             <li>CRAFT AND LOADOUT
                                 <ul>
                                     <li>Before starting the match, a staff member or caster should share their screen via discord and open the <a href="https://trandom.zyp.mx/" target="_blank">TRAndomizer</a></li>
-                                    <li>Once both team captains are watching the shared screen, the caster or staff member will roll 3 random craft builds for New Republic, and 3 for Empire.</li>
+                                    <li>Once both team captains are watching the shared screen, the caster or staff member will roll 3 random craft builds for New Republic, and 3 for Empire. The 3 craft must be different.</li>
                                     <li>Both teams should take note of these 6 random crafts and loadouts, as those are the loadouts that will be used in the games.</li>
                                     <li>Teams are free to choose which pilot will fly which loadout, as long as the three loadouts are used.</li>
                                     <li>When switching faction, the teams MUST fly the corresponding mirror loadouts. That means, they will fly the loadouts previously played by the opponent.</li>
@@ -162,6 +171,7 @@
                             </li>
                             <li>Turret mines - offense will not be registered until a turret or rocket mine is launched by a player onto the map. This rule does not apply for <strong>SHIELD</strong> tournament phase.</li>
                             <li>Rocket mines - offense will not be registered until a turret or rocket mine is launched by a player onto the map. This rule does not apply for <strong>SHIELD</strong> tournament phase.</li>
+                            <li>Self-repairing - offense will not be registered until the craft self-repairs. This rule also applies in <strong>SHIELD</strong> tournament phase.</li>
                             <li>When conditions described in 9 a, 9 b, or 9 c occur, the offending team will automatically forfeit the game under conditions of Section 10 a with the game ceasing immediately.</li>
                         </ul>
                     </li>
@@ -323,6 +333,18 @@
                     <tr>
                         <td>27th Sep 2022</td>
                         <td><b>Section 8d</b> - Added clarity on how the winner of a SHIELD matchup is determined.</td>
+                    </tr>
+                    <tr>
+                        <td>20th Jan 2023</td>
+                        <td><b>Section 1d</b> - Updated phrasing to match current season. <br>
+                            <b>Section 2</b> - Penalty for not fielding all players has been removed. <br>
+                            <b>Section 4b</b> - Updated daylight savings times. <br>
+                            <b>Section 7a, 7c, 8a, 8c, and 9d</b> - Changed match setup after feedback suggestions. To reduce endless turn battles.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>23rd Mar 2023</td>
+                        <td><b>Section 7a and 8a</b> - Slight adjustments to rules. Nodes are now back on, and primary damage modifier raised from 1.2 to 1.3</td>
                     </tr>
                 </table>
             </div>
