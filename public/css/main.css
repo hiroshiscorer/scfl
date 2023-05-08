@@ -779,6 +779,46 @@ strong.champ {
     flex-basis: 100%;
     opacity: 0.7;
 }
+
+.division-filter-title {
+    font-size: 1rem;
+    font-variant: all-small-caps;
+}
+
+.division-filter {
+    display: flex;
+    gap: 15px;
+}
+
+.division-filter li {
+    background-color: var(--scfl-dark-blue);
+    padding: 5px 15px;
+    border: 3px ridge #fff8;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 150ms ease;
+}
+
+.division-filter li:hover {
+    box-shadow: 0 0 5px #fff8;
+}
+
+.division-filter li.selected {
+    background-color: var(--scfl-blue);
+}
+
+.division-filter li.selected::after {
+    content: "\f00c";
+    display: inline-block;
+    line-height: 1;
+    font-weight: normal;
+    font-variant: normal;
+    font-style: normal;
+    font-size: 1em;
+    font-family: FontAwesome;
+    margin-left: 15px;
+}
+
 /* =========================== SCHEDULE =========================== */
 
 #schedule h3 {
