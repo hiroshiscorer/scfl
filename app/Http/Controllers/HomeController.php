@@ -158,5 +158,58 @@ class HomeController extends Controller
         $card = card::where('season', $season)->where('pilotname', $pilotname)->first();
         return view('archivecard', compact('card'));
     }
+    public function allcard()
+    {
+        $pilots = pilot::all();
+        $all = [];
+        foreach ($pilots as $pilot) {
+
+            $team = team::where('id', $pilot->team_id)->first();
+            $stats = pilotStat::where('pilot_id', $pilot->id)->get();
+            $nrStat = ['kills' => 0, 'deaths' => 0, 'assists' => 0, 'wins' => 0];
+            $eStat = ['kills' => 0, 'deaths' => 0, 'assists' => 0, 'wins' => 0];
+
+            for ($i = 0; $i < count($stats); $i++) {
+                $match = \App\Models\match::where('id', $stats[$i]->match_id)->first();
+
+                $matchup = matchup::where('id', $match->matchup_id)->first();
+                if ($pilot->team_id == $matchup->team1_id) {
+                    if ($match->faction == 0) {
+                        //add to NR stats
+                        $nrStat["kills"] += $stats[$i]->kills;
+                        $nrStat["deaths"] += $stats[$i]->deaths;
+                        $nrStat["assists"] += $stats[$i]->assists;
+                        $nrStat["wins"] += $stats[$i]->match_won;
+                    } else {
+                        //add to emp stats
+                        $eStat["kills"] += $stats[$i]->kills;
+                        $eStat["deaths"] += $stats[$i]->deaths;
+                        $eStat["assists"] += $stats[$i]->assists;
+                        $eStat["wins"] += $stats[$i]->match_won;
+                    }
+                }
+                if ($pilot->team_id == $matchup->team2_id) {
+                    if ($match->faction == 1) {
+                        //add to NR stats
+                        $nrStat["kills"] += $stats[$i]->kills;
+                        $nrStat["deaths"] += $stats[$i]->deaths;
+                        $nrStat["assists"] += $stats[$i]->assists;
+                        $nrStat["wins"] += $stats[$i]->match_won;
+                    } else {
+                        //add to emp stats
+                        $eStat["kills"] += $stats[$i]->kills;
+                        $eStat["deaths"] += $stats[$i]->deaths;
+                        $eStat["assists"] += $stats[$i]->assists;
+                        $eStat["wins"] += $stats[$i]->match_won;
+                    }
+                }
+
+            }
+            $c1 = "INSERT INTO `cards` (`id`,`season`,`pilotname`,`team`,`team_image`,`nr_k`,`nr_d`,`nr_a`,`nr_w`,`nr_kd`,`ge_k`,`ge_d`,`ge_a`,`ge_w`,`ge_kd`,`t_kd`,`created_at`,`updated_at`) VALUES (NULL,'proto-0','". $pilot->pilot_name ."','". $team->team_name ."','". ($team->logo != '' ? $team->logo : 'default.png') ."','". $nrStat['kills'] ."','". $nrStat['deaths'] ."','". $nrStat['assists'] ."','". $nrStat['wins'] ."','". number_format($nrStat['kills'] / ($nrStat['deaths'] != 0 ? $nrStat['deaths'] : 1), 2) ."','". $eStat['kills'] ."','". $eStat['deaths'] ."','". $eStat['assists'] ."','". $eStat['wins'] ."','". number_format($eStat['kills'] / ($eStat['deaths'] != 0 ? $eStat['deaths'] : 1), 2) ."','". number_format(($nrStat['kills'] + $eStat['kills']) / (($nrStat['deaths'] + $eStat['deaths']) != 0 ? ($nrStat['deaths'] + $eStat['deaths']) : 1), 2) ."',NULL,NULL); ";
+            $all[] = $c1;
+        }
+        return view('get-sql', compact('all'));
+    }
+
 }
 
